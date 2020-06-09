@@ -35,7 +35,40 @@ const validateLoginBody = () => {
        ] 
 } 
 
+const validateShopBody = () => {
+    return [ 
+        body('name')
+        .exists()
+        .withMessage('name field is required')
+        .isLength({min:3})
+        .withMessage('name must be greater than 3 characters'),
+        body('address')
+        .exists()
+        .withMessage('address field is required')
+        .isLength({min:3})
+        .withMessage('address must be greater than 3 characters'),
+        body('description')
+        .exists()
+        .withMessage('description field is required')
+        .isLength({min:3})
+        .withMessage('description must be greater than 3 characters'),
+        body('city')
+        .exists()
+        .withMessage('city field is required')
+        .isLength({min:1})
+        .withMessage('city should not be empty'),
+        body('country')
+        .exists()
+        .withMessage('country field is required')
+        .isLength({min:1})
+        .withMessage('country should not be empty'),
+       ] 
+} 
+
+
+
 module.exports = {
     validateRegistrationBody : validateRegistrationBody,
-    validateLoginBody : validateLoginBody
+    validateLoginBody : validateLoginBody,
+    validateShopBody: validateShopBody
 }
