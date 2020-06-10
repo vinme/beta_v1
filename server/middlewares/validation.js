@@ -65,10 +65,66 @@ const validateShopBody = () => {
        ] 
 } 
 
+const validateHotelBody = () => {
+    return [ 
+        body('code')
+        .exists()
+        .withMessage('email field is required')
+        .isLength({min: 1})
+        .withMessage('Hotel should not be empty'),
+        body('name')
+        .exists()
+        .withMessage('Hotel name is required')
+        .isLength({min : 3})
+        .withMessage('Hotel name should be atleast 3 characters long'),
+        body('motto')
+        .exists()
+        .withMessage('Motto name is required')
+        .isLength({min : 1})
+        .withMessage('Motto should not be empty'),
+        body('shortdescription')
+        .exists()
+        .withMessage('short description name is required')
+        .isLength({min : 1})
+        .withMessage('short description should not be empty'),
+        body('address')
+        .exists()
+        .withMessage('address name is required')
+        .isLength({min : 1})
+        .withMessage('address should not be empty'),
+        body('city')
+        .exists()
+        .withMessage('city name is required')
+        .isLength({min : 1})
+        .withMessage('city should not be empty'),
+        body('state')
+        .exists()
+        .withMessage('state name is required')
+        .isLength({min : 1})
+        .withMessage('state should not be empty'),
+        body('country')
+        .exists()
+        .withMessage('country name is required')
+        .isLength({min : 1})
+        .withMessage('country should not be empty'),
+        body('zipcode')
+        .exists()
+        .withMessage('zipcode name is required')
+        .isLength({min : 1})
+        .withMessage('zipcode should not be empty'),
+        body('telephone')
+        .exists()
+        .withMessage('telephone name is required')
+        .isLength({min : 1})
+        .withMessage('telephone should not be empty'),
+       ] 
+} 
+
 
 
 module.exports = {
     validateRegistrationBody : validateRegistrationBody,
     validateLoginBody : validateLoginBody,
-    validateShopBody: validateShopBody
+    validateShopBody: validateShopBody,
+    validateHotelBody: validateHotelBody
 }
